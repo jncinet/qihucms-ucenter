@@ -2,6 +2,9 @@
 
 composer require jncinet/qihucms-ucenter
 
+添加数据库：
+php artisan migrate
+
 一、添加后台菜单：链接地址=>ucenter/site
 
 二、在文件【/app/Repositories/AccountRepository.php】添加账户变动触发节点：
