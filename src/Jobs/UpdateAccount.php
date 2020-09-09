@@ -37,6 +37,14 @@ class UpdateAccount implements ShouldQueue
     {
         $sites = UcenterSite::where('status', 1)->whereNotNull('account_api')->get();
         foreach ($sites as $site) {
+            switch ($site->encrypt_type) {
+                case 'hash':
+                    $this->data['sign'] = Support::GenerateSign($this->data, $site->token);
+                    break;
+                case 'string':
+                    $this->data['sign'] = $site->token;
+                    break;
+            }
             Support::requestApi($site->account_api, $this->data);
         }
     }

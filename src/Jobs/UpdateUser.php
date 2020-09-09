@@ -55,7 +55,7 @@ class UpdateUser implements ShouldQueue
             $parent_mobile = '';
         }
         foreach ($sites as $site) {
-            Support::requestApi($site->user_api, [
+            $data = [
                 'id' => $this->user->id,
                 'username' => $this->user->username,
                 'mobile' => $this->user->mobile,
@@ -66,7 +66,16 @@ class UpdateUser implements ShouldQueue
                 'pid' => $parent_id,
                 'punionid' => $parent_unionid,
                 'pmobile' => $parent_mobile,
-            ]);
+            ];
+            switch ($site->encrypt_type) {
+                case 'hash':
+                    $data['sign'] = Support::GenerateSign($data, $site->token);
+                    break;
+                case 'string':
+                    $data['sign'] = $site->token;
+                    break;
+            }
+            Support::requestApi($site->user_api, $data);
         }
     }
 }

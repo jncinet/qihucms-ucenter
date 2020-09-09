@@ -37,6 +37,7 @@ class Support
     /**
      * 生成签名
      *
+     * @param int $site_id
      * @param array $data
      * @param string $token
      * @return string
