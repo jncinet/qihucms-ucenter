@@ -4,10 +4,6 @@
 
 ###数据库表安装：在网站根目录运行命令
 
-php artisan migrate
-
-###一、添加后台菜单：链接地址=>ucenter/site
-
 `php artisan migrate`
 
 ###一、添加后台菜单：链接地址=>ucenter/site
@@ -55,3 +51,11 @@ php artisan migrate
 ```
 \Qihucms\UCenter\Jobs\UpdateUser::dispatch($user)->delay(now()->addMinutes(1));
 ```
+
+##四、接口地址
+
+http://api.domain.name/ucenter/{site_id}/user
+
+http://api.domain.name/ucenter/{site_id}/account
+
+> {site_id}对应后台添加的关联站点的ID
