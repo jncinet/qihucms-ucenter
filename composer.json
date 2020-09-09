@@ -1,0 +1,30 @@
+{
+  "name": "jncinet/qihucms-ucenter",
+  "description": "qihucms user and account api.",
+  "keywords": [
+    "laravel",
+    "qihucms",
+    "ucenter"
+  ],
+  "homepage": "https://www.qihucms.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "zhangye",
+      "email": "y@qilephp.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Qihucms\\UCenter\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Qihucms\\UCenter\\UCenterServiceProvider"
+      ]
+    }
+  }
+}
