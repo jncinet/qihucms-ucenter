@@ -45,7 +45,7 @@ class AccountController extends Controller
             }
         }
 
-        $amount = (int)$request->input('amount');
+        $amount = $request->input('amount');
         if ($amount == 0) {
             return response()->json([
                 'status' => 'error',
