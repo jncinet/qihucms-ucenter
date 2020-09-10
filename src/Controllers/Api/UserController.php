@@ -9,6 +9,7 @@ use App\Repositories\SpreadRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Qihucms\UCenter\Support;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -57,7 +58,7 @@ class UserController extends Controller
                     'open_id' => ['wechat' => ['unionid' => $unionid]],
                     'username' => $mobile,
                     'mobile' => $mobile,
-                    'password' => $password ?: Str::random(),
+                    'password' => Hash::make($password ?: Str::random()),
                 ]);
             }
         } else {
@@ -71,7 +72,7 @@ class UserController extends Controller
                     'open_id' => ['wechat' => ['unionid' => $unionid]],
                     'username' => $mobile,
                     'mobile' => $mobile,
-                    'password' => $password ?: Str::random(),
+                    'password' => Hash::make($password ?: Str::random()),
                 ]);
             }
         }
